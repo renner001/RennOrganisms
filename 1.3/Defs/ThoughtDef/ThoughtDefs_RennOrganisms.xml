@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThoughtDef>
+    <defName>RennOrganisms</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+    <!--<nullifyingPrecepts>
+      <li MayRequire="Ludeon.RimWorld.Ideology">RoughLiving_Welcomed</li>
+    </nullifyingPrecepts>-->
+    <stages>
+      <li>
+        <label>no renn effect</label>
+        <description>The microbes seem dormant.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+      <li>
+        <label>-1 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+      <li>
+        <label>-2 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li>
+        <label>-3 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>-4 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <label>-5 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>-6 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>-7 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-7</baseMoodEffect>
+      </li>
+      <li>
+        <label>-8 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+      <li>
+        <label>-9 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-9</baseMoodEffect>
+      </li>
+      <li>
+        <label>-10 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+      <li>
+        <label>-11 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-11</baseMoodEffect>
+      </li>
+      <li>
+        <label>-12 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+      <li>
+        <label>-13 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-13</baseMoodEffect>
+      </li>
+      <li>
+        <label>-14 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-14</baseMoodEffect>
+      </li>
+      <li>
+        <label>-15 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-15</baseMoodEffect>
+      </li>
+      <li>
+        <label>-16 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-16</baseMoodEffect>
+      </li>
+      <li>
+        <label>-17 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-17</baseMoodEffect>
+      </li>
+      <li>
+        <label>-18 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-18</baseMoodEffect>
+      </li>
+      <li>
+        <label>-19 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-19</baseMoodEffect>
+      </li>
+      <li>
+        <label>-20 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+      <li>
+        <label>-21 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-21</baseMoodEffect>
+      </li>
+      <li>
+        <label>-22 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-22</baseMoodEffect>
+      </li>
+      <li>
+        <label>-23 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-23</baseMoodEffect>
+      </li>
+      <li>
+        <label>-24 renn effect</label>
+        <description>The microbes seem less active.</description>
+        <baseMoodEffect>-24</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>
