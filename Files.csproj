@@ -76,7 +76,7 @@
     <Content Include="Textures\Building_RennReactor\RennReactor.png" />
     <Content Include="Textures\Plant_RennFiberDomestic\RennFiberDomestic\Plant_RennFiberDomestic_A.png" />
     <Content Include="Textures\Plant_RennFiberDomestic\RennFiberDomestic_Immature\Plant_RennFiberDomestic_A.png" />
-    <Content Include="Textures\Plant_RennFiberEngineered\Plant_RennFiberEngineered_Immature\Plant_RennFiberEngineered_A.png" />
+    <Content Include="Textures\Plant_RennFiberEngineered\RennFiberEngineered_Immature\Plant_RennFiberEngineered_A.png" />
     <Content Include="Textures\Plant_RennFiberEngineered\RennFiberEngineered\Plant_RennFiberEngineered_A.png" />
     <Content Include="Textures\Plant_RennFiber\RennFiber\Plant_RennFiber_A.png" />
     <Content Include="Textures\Plant_RennFiber\RennFiber_Immature\Plant_RennFiber_A.png" />
@@ -102,7 +102,7 @@
     <None Include="Textures\Building_RennReactor\RennReactor.pdn" />
     <None Include="Textures\Plant_RennFiberDomestic\RennFiberDomestic\Plant_RennFiberDomestic_A.pdn" />
     <None Include="Textures\Plant_RennFiberDomestic\RennFiberDomestic_Immature\Plant_RennFiberDomestic_A.pdn" />
-    <None Include="Textures\Plant_RennFiberEngineered\Plant_RennFiberEngineered_Immature\Plant_RennFiberEngineered_A.pdn" />
+    <None Include="Textures\Plant_RennFiberEngineered\RennFiberEngineered_Immature\Plant_RennFiberEngineered_A.pdn" />
     <None Include="Textures\Plant_RennFiberEngineered\RennFiberEngineered\Plant_RennFiberEngineered_A.pdn" />
     <None Include="Textures\Plant_RennFiber\RennFiber\Plant_RennFiber_A.pdn" />
     <None Include="Textures\Plant_RennFiber\RennFiber_Immature\Plant_RennFiber_A.pdn" />

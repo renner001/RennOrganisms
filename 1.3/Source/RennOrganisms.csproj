@@ -7,8 +7,8 @@
     <ProjectGuid>{5990E164-BE2F-4828-963D-147BF3A95DD9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DanielRenner.RepeatableResearch</RootNamespace>
-    <AssemblyName>RepeatableResearch</AssemblyName>
+    <RootNamespace>DanielRenner.RennOrganisms</RootNamespace>
+    <AssemblyName>RennOrganisms</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

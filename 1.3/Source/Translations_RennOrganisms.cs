@@ -9,8 +9,21 @@ namespace DanielRenner.RennOrganisms
 {
     public static class Translations_RennOrganisms
     {
-        public static string SettingsPanelName = "RennOrganisms.SettingsPanel".Translate();
-        public static string SettingsPanelChangeSettingsEffect = "RennOrganisms.SettingsPanelChangeSettingsEffect".Translate();
+        /// <summary>
+        /// pre-translated
+        /// </summary>
+        public static class Static
+        {
+            public static string SettingsPanelName = "RennOrganisms.SettingsPanel".Translate();
+            public static string SettingsPanelChangeSettingsEffect = "RennOrganisms.SettingsPanelChangeSettingsEffect".Translate();
+        }
+        /// <summary>
+        /// require a .Translate() call
+        /// </summary>
+        public static class Templates
+        {
+
+        }
         
     }
 }

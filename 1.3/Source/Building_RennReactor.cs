@@ -10,11 +10,5 @@ using Verse;
 namespace DanielRenner.RennOrganisms
 {
     class Building_RennReactor : Building_RennBase
-    {
-        public Building_RennReactor()
-        {
-            baseMoodEffectOfBuilding = 6;
-            minThreatLoss = 2000;
-        }
-    }
+    { }
 }

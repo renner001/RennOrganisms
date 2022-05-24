@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  <!--<RepeatableResearch.timesAlreadyResearched>schon {0} mal erforscht</RepeatableResearch.timesAlreadyResearched>-->
+  <RennOrganisms.SettingsPanel>Renn Organismen</RennOrganisms.SettingsPanel>
+  <RennOrganisms.SettingsPanelChangeSettingsEffect>Alle Änderungen treten nach wenigen in-game Minuten in Effekt. Ein Neustart is nicht nötig.</RennOrganisms.SettingsPanelChangeSettingsEffect>
 </LanguageData>

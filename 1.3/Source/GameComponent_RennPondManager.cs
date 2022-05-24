@@ -8,13 +8,22 @@ using Verse;
 
 namespace DanielRenner.RennOrganisms
 {
-    public class RennPondSettings
+    public class RennPondSettings : IExposable
     {
         public int moodEffect = 0;
         public int tickLastReported = Find.TickManager.TicksGame;
         public int threatCap = int.MaxValue;
         public int minThreatReduction = 0;
         public float threatMultiplier = 1.0f;
+
+        public void ExposeData()
+        {
+            Scribe_Values.Look(ref moodEffect, "moodEffect", 0);
+            Scribe_Values.Look(ref tickLastReported, "tickLastReported");
+            Scribe_Values.Look(ref threatCap, "threatCap", int.MaxValue);
+            Scribe_Values.Look(ref minThreatReduction, "minThreatReduction", 0);
+            Scribe_Values.Look(ref threatMultiplier, "threatMultiplier", 1.0f);
+        }
     }
 
     public class GameComponent_RennPondManager : GameComponent
@@ -22,9 +31,17 @@ namespace DanielRenner.RennOrganisms
         // saved settings
         Dictionary<Thing, RennPondSettings> knownThreatSettings = new Dictionary<Thing, RennPondSettings>();
 
+        //temporary variables
+        List<Thing> tempKeyListThreatSettings; // required for the Scribe-mechanism
+        List<RennPondSettings> tempValueListThreatSettings; // required for the Scribe-mechanism
+        Dictionary<Map, float> prevThreatSettings = new Dictionary<Map, float>();
+        Game loadedGame;
+
+
         public GameComponent_RennPondManager(Game game)
         {
             Log.Debug("GameComponent_RennPondManager created");
+            loadedGame = game;
         }
 
         public override void GameComponentTick()
@@ -35,6 +52,15 @@ namespace DanielRenner.RennOrganisms
             {
                 foreach (var map in Find.Maps)
                 {
+                    var currSettings = GetCurrentSettings(map);
+                    if (prevThreatSettings.ContainsKey(map))
+                    {
+                        if (loadedGame.CurrentMap == map && prevThreatSettings[map] != currSettings.threatMultiplier)
+                        {
+                            Messages.Message("A shift in the mood of the renn microbes results in future threat levels around " + Math.Round(currSettings.threatMultiplier*100, 0) + "%", MessageTypeDefOf.CautionInput);
+                        }
+                    }
+                    prevThreatSettings[map] = currSettings.threatMultiplier;
                     if (map.IsPlayerHome)
                     {
                         applyMoodEffect(map, GetCurrentSettings(map).moodEffect);
@@ -57,7 +83,7 @@ namespace DanielRenner.RennOrganisms
                 Log.ErrorOnce("missing stage for mood effect " + moodEffect, 849462741);
                 rightStage = 0;
             }
-            Log.Debug("total of " + mapHumanlikes.Count() + " pawns found on map " + map + " for a " + moodEffect + " negative mood effect through moodlet stage=" + rightStage + ": " + String.Join(", ", mapHumanlikes.Select(pawn => pawn.Name)));
+            //Log.Debug("total of " + mapHumanlikes.Count() + " pawns found on map " + map + " for a " + moodEffect + " negative mood effect through moodlet stage=" + rightStage + ": " + String.Join(", ", mapHumanlikes.Select(pawn => pawn.Name)));
             foreach (var pawn in mapHumanlikes)
             {
                 pawn.needs.mood.thoughts.memories.TryGainMemory((Thought_Memory)ThoughtMaker.MakeThought(DefOfs_RennOrganisms.RennOrganisms, rightStage));
@@ -69,9 +95,7 @@ namespace DanielRenner.RennOrganisms
             base.ExposeData();
             try
             {
-                List<Thing> tempKeyList = new List<Thing>();
-                List<RennPondSettings> tempValueList = new List<RennPondSettings>();
-                Scribe_Collections.Look(ref knownThreatSettings, "knownThreatSettings", LookMode.Reference, LookMode.Value, ref tempKeyList, ref tempValueList);
+                Scribe_Collections.Look(ref knownThreatSettings, "knownThreatSettings", LookMode.Reference, LookMode.Deep, ref tempKeyListThreatSettings, ref tempValueListThreatSettings);
             } catch (Exception ex)
             {
                 Log.Warning("Failed to load settings of GameComponent_RennPondManager. This is an error the game will recover from within the next seconds. Details: " + ex);

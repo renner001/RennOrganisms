@@ -19,6 +19,7 @@ namespace DanielRenner.RennOrganisms
         public new Building_RennBaseDef def {
             get 
             {
+                //Log.Debug("returning base.def=" + base.def + " as def=" + (base.def as Building_RennBaseDef));
                 return base.def as Building_RennBaseDef;
             }
         }
@@ -32,8 +33,29 @@ namespace DanielRenner.RennOrganisms
                 return def.availableFeedOptions;
             }
         }
-        protected int baseMoodEffectOfBuilding = 3;
-        protected int minThreatLoss = 250;
+        private Comp_SpecificRefuelable refuelable;
+        protected Comp_SpecificRefuelable Refuelable
+        {
+            get 
+            { 
+                if (refuelable == null)
+                {
+                    refuelable = GetComp<Comp_SpecificRefuelable>();
+                }
+                return refuelable;
+            }
+        }
+        private CompPowerTrader power;
+        protected CompPowerTrader Power {
+            get
+            {
+                if (power == null)
+                {
+                    power = GetComp<CompPowerTrader>();
+                }
+                return power;
+            }
+        }
 
         public override void PostMake()
         {
@@ -61,8 +83,7 @@ namespace DanielRenner.RennOrganisms
             base.ReceiveCompSignal(signal);
             if (signal == "Refueled")
             {
-                var refuelable = GetComp<Comp_SpecificRefuelable>();
-                var lastRefueledWith = refuelable.lastRefueledWith;
+                var lastRefueledWith = Refuelable.lastRefueledWith;
                 if (lastRefueledWith == DefOfs_RennOrganisms.RennFiber && availableFeedOptions.Contains(FeedOptions.RennFiber))
                 {
                     Log.Debug("refueled with fuel '" + lastRefueledWith + "'");
@@ -105,35 +126,36 @@ namespace DanielRenner.RennOrganisms
         /// <returns></returns>
         protected virtual void updateThreatPoints(ref RennPondSettings settings)
         {
-            var refuelable = GetComp<CompRefuelable>();
-            var power = GetComp<CompPowerTrader>();
-            int moodEffect = baseMoodEffectOfBuilding;
-            if ((power == null || (power != null && power.PowerOn)) && refuelable.HasFuel)
+            int moodEffect = def.baseMoodEffectOfBuildingUnpoweredAndUnfueled;
+            if ((Power == null || (Power != null && Power.PowerOn)))
             {
-                switch (lastFed)
-                {
-                    case FeedOptions.RennFiber:
-                        moodEffect += 3;
-                        break;
-                    case FeedOptions.RennFiberDomestic:
-                        moodEffect += 6;
-                        break;
-                    case FeedOptions.RennPowder:
-                        moodEffect += 9;
-                        break;
-                    case FeedOptions.RennConcentrate:
-                        moodEffect += 12;
-                        break;
-                    case FeedOptions.RennCapsule:
-                        moodEffect += 15;
-                        break;
+                moodEffect += def.moodOffsetOfBuildingPowered;
+                if (Refuelable != null && Refuelable.HasFuel) {
+                    switch (lastFed)
+                    {
+                        case FeedOptions.RennFiber:
+                            moodEffect += def.moodOffsetFedRennFiber;
+                            break;
+                        case FeedOptions.RennFiberDomestic:
+                            moodEffect += def.moodOffsetFedRennFiberDomestic;
+                            break;
+                        case FeedOptions.RennPowder:
+                            moodEffect += def.moodOffsetFedRennPowder;
+                            break;
+                        case FeedOptions.RennConcentrate:
+                            moodEffect += def.moodOffsetFedRennConcentrate;
+                            break;
+                        case FeedOptions.RennCapsule:
+                            moodEffect += def.moodOffsetFedRennCapsule;
+                            break;
+                    }
                 }
             }
-
+            settings.threatMultiplier = 1.0f - def.moodToThreatMultiplier * moodEffect;
+            settings.threatCap = def.maxThreatCap;
+            settings.minThreatReduction = def.minThreatReduction;
+            moodEffect = (int)Math.Round((double)moodEffect * ModSettings_RennOrganisms.moodMultipilerSettingsPercent / 100, 0);
             settings.moodEffect = moodEffect;
-            settings.threatMultiplier = 1.0f - 0.04f * moodEffect;
-            settings.threatCap = int.MaxValue;
-            settings.minThreatReduction = minThreatLoss;
         }
 
         public override void Tick()

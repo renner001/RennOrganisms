@@ -4,17 +4,17 @@
   <ThingDef ParentName="BuildingBase" Class="DanielRenner.RennOrganisms.Building_RennBaseDef">
     <defName>RennPond</defName>
     <label>renn pond</label>
-    <description>A pond inhabited by renn micro organisms. Renn microbes have a peculiar connection to reality. Anchient stories speak of friends to the microbes always have been favored by luck and yet rarely has a society existed for long.</description>
+    <description>A pond inhabited by renn organisms. Renn microbes are invisibly small and have a peculiar connection to reality: \nAnchient stories speak of friends to the microbes. Their friends are always favored by luck and rarely see enemies at their gates. Yet their societies are plagued by infighting and mood swings. \nOne can't have everything, it seems.\n\nRenn ponds offer a flat reduction of threats by 250 threat points or 12% - whatever is bigger.\nThey impose a -3 penalty to the mood of your people.</description>
     <thingClass>DanielRenner.RennOrganisms.Building_RennPond</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Building_RennPond/RennPond</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(6,6)</drawSize>
-      <shadowData>
+      <!--<shadowData>
         <volume>(6.03,1.0,5.25)</volume>
         <offset>(0,0,-0.25)</offset>
-      </shadowData>
+      </shadowData>-->
       <damageData>
         <rect>(0.3,0,5.4,6)</rect>
       </damageData>
@@ -37,6 +37,16 @@
     <costList>
       <WoodLog>100</WoodLog>
     </costList>
+    <baseMoodEffectOfBuildingUnpoweredAndUnfueled>3</baseMoodEffectOfBuildingUnpoweredAndUnfueled>
+    <moodOffsetOfBuildingPowered>0</moodOffsetOfBuildingPowered>
+    <moodToThreatMultiplier>0.04</moodToThreatMultiplier>
+    <maxThreatCap>500000</maxThreatCap>
+    <minThreatReduction>250</minThreatReduction>
+    <moodOffsetFedRennFiber>3</moodOffsetFedRennFiber>
+    <moodOffsetFedRennFiberDomestic>6</moodOffsetFedRennFiberDomestic>
+    <moodOffsetFedRennPowder>9</moodOffsetFedRennPowder>
+    <moodOffsetFedRennConcentrate>12</moodOffsetFedRennConcentrate>
+    <moodOffsetFedRennCapsule>15</moodOffsetFedRennCapsule>
     <availableFeedOptions>
       <li>RennFiber</li>
       <li>RennFiberDomestic</li>
@@ -79,18 +89,18 @@
   <!-- RennReactor-->
   <ThingDef ParentName="BuildingBase"  Class="DanielRenner.RennOrganisms.Building_RennBaseDef">
     <defName>RennReactor</defName>
-    <label>renn reactor</label>
-    <description>A reactor inhabited by a dense amount of renn micro organisms. \n\nRenn microbes have a peculiar connection to reality. Anchient stories speak of friends to the microbes always have been favored by luck and yet rarely has a society existed for long.</description>
+    <label>Renn tank</label>
+    <description>A tank inhabited by a dense amount of renn microbes. Renn microbes are invisibly small and have a peculiar connection to reality: \nAnchient stories speak of friends to the microbes. Their friends are always favored by luck and rarely see enemies at their gates. Yet their societies are plagued by infighting and mood swings. \nOne can't have everything, it seems.\n\nRenn tanks offer a flat reduction of threats by 5000 threat points or 24% - whatever is bigger.\nThey impose a -6 penalty to the mood of your people.</description>
     <thingClass>DanielRenner.RennOrganisms.Building_RennReactor</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Building_RennReactor/RennReactor</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(6,6)</drawSize>
-      <shadowData>
+      <!--<shadowData>
         <volume>(6.03,1.0,5.25)</volume>
         <offset>(0,0,-0.25)</offset>
-      </shadowData>
+      </shadowData>-->
       <damageData>
         <rect>(0.3,0,5.4,6)</rect>
       </damageData>
@@ -114,6 +124,16 @@
       <Steel>300</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
+    <baseMoodEffectOfBuildingUnpoweredAndUnfueled>6</baseMoodEffectOfBuildingUnpoweredAndUnfueled>
+    <moodOffsetOfBuildingPowered>0</moodOffsetOfBuildingPowered>
+    <moodToThreatMultiplier>0.04</moodToThreatMultiplier>
+    <maxThreatCap>500000</maxThreatCap>
+    <minThreatReduction>1000</minThreatReduction>
+    <moodOffsetFedRennFiber>3</moodOffsetFedRennFiber>
+    <moodOffsetFedRennFiberDomestic>6</moodOffsetFedRennFiberDomestic>
+    <moodOffsetFedRennPowder>9</moodOffsetFedRennPowder>
+    <moodOffsetFedRennConcentrate>12</moodOffsetFedRennConcentrate>
+    <moodOffsetFedRennCapsule>15</moodOffsetFedRennCapsule>
     <availableFeedOptions>
       <li>RennFiberDomestic</li>
       <li>RennPowder</li>
@@ -151,38 +171,39 @@
       <li>PlaceWorker_OnSteamGeyser</li>
     </placeWorkers>-->
     <building>
-      <!--<ai_chillDestination>false</ai_chillDestination>
       <soundAmbient>GeothermalPlant_Ambience</soundAmbient>
-      <destroySound>BuildingDestroyed_Metal_Big</destroySound>-->
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
     </building>
     <constructEffect>ConstructMetal</constructEffect>
     <!--<designationHotKey>Misc6</designationHotKey>-->
-    <!--<researchPrerequisites>
-      <li>GeothermalPower</li>
-    </researchPrerequisites>-->
+    <researchPrerequisites>
+      <li>Research_RennReactor</li>
+    </researchPrerequisites>
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
   </ThingDef>
   <!-- RennPortal -->
   <ThingDef ParentName="BuildingBase"  Class="DanielRenner.RennOrganisms.Building_RennBaseDef">
     <defName>RennPortal</defName>
-    <label>renn gate</label>
-    <description>A gateway between the realm of men and the native realm of the renn organisms. \n\nRenn microbes have a peculiar connection to reality. Anchient stories speak of friends to the microbes always have been favored by luck and yet rarely has a society existed for long.</description>
+    <label>Renn gate</label>
+    <description>A gateway between the realm of men and the native realm of the renn organisms. Renn are non-sentient beings living in multiple dimensions at the same time. Their this-worldly form are microbes that are invisibly small. \nThey have a peculiar effect to reality in our dimension: As long as they are well fed, they will try to maintain the source of their food, e.g. us. How they are doing this is not yet explainable, but it results in what is commonly known as luck: External threats to our society like raids are heavily reduced. Besides nutrition, they also feed on our colonists mood causing social infights in colonies not perfectly managed. One can't have everything, it seems.\n\nRenn gates as long as powered offer a flat reduction of threats by 20000 threat points or 36% - whatever is bigger.\nThey impose a -9 penalty to the mood of your people.</description>
     <thingClass>DanielRenner.RennOrganisms.Building_RennPortal</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Building_RennPortal/RennPortal</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(6,6)</drawSize>
-      <shadowData>
+      <!--<shadowData>
         <volume>(6.03,1.0,5.25)</volume>
         <offset>(0,0,-0.25)</offset>
-      </shadowData>
+      </shadowData>-->
       <damageData>
         <rect>(0.3,0,5.4,6)</rect>
       </damageData>
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
+    <passability>PassThroughOnly</passability>
+    <!--<interactionCellOffset>(1,0,-2)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>-->
     <blockWind>true</blockWind>
     <scatterableOnMapGen>false</scatterableOnMapGen>
     <fillPercent>1</fillPercent>
@@ -201,6 +222,16 @@
       <ComponentIndustrial>12</ComponentIndustrial>
       <ComponentSpacer>4</ComponentSpacer>
     </costList>
+    <baseMoodEffectOfBuildingUnpoweredAndUnfueled>0</baseMoodEffectOfBuildingUnpoweredAndUnfueled>
+    <moodOffsetOfBuildingPowered>9</moodOffsetOfBuildingPowered>
+    <moodToThreatMultiplier>0.04</moodToThreatMultiplier>
+    <maxThreatCap>500000</maxThreatCap>
+    <minThreatReduction>5000</minThreatReduction>
+    <moodOffsetFedRennFiber>3</moodOffsetFedRennFiber>
+    <moodOffsetFedRennFiberDomestic>6</moodOffsetFedRennFiberDomestic>
+    <moodOffsetFedRennPowder>9</moodOffsetFedRennPowder>
+    <moodOffsetFedRennConcentrate>12</moodOffsetFedRennConcentrate>
+    <moodOffsetFedRennCapsule>15</moodOffsetFedRennCapsule>
     <availableFeedOptions>
       <li>RennCapsule</li>
     </availableFeedOptions>
@@ -234,15 +265,15 @@
       <li>PlaceWorker_OnSteamGeyser</li>
     </placeWorkers>-->
     <building>
-      <!--<ai_chillDestination>false</ai_chillDestination>
+      <!--<ai_chillDestination>false</ai_chillDestination>-->
       <soundAmbient>GeothermalPlant_Ambience</soundAmbient>
-      <destroySound>BuildingDestroyed_Metal_Big</destroySound>-->
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
     </building>
     <constructEffect>ConstructMetal</constructEffect>
     <!--<designationHotKey>Misc6</designationHotKey>-->
-    <!--<researchPrerequisites>
-      <li>GeothermalPower</li>
-    </researchPrerequisites>-->
+    <researchPrerequisites>
+      <li>Research_RennPortal</li>
+    </researchPrerequisites>
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
   </ThingDef>
   <!-- Plant_RennFiber -->
@@ -264,13 +295,16 @@
       <growDays>8</growDays>
       <dieIfLeafless>true</dieIfLeafless>
       <harvestTag>Standard</harvestTag>
+      <immatureGraphicPath>Plant_RennFiber/RennFiber_Immature</immatureGraphicPath>
       <harvestedThingDef>RennFiber</harvestedThingDef>
       <harvestYield>1</harvestYield>
       <sowTags>
         <li>Ground</li>
       </sowTags>
+      <sowResearchPrerequisites>
+        <li>Research_RennFiber</li>
+      </sowResearchPrerequisites>
       <topWindExposure>0.1</topWindExposure>
-      <!--<immatureGraphicPath>Things/Plant/CottonPlant_Immature</immatureGraphicPath>-->
       <visualSizeRange>0.3~1.05</visualSizeRange>
       <wildOrder>2</wildOrder>
     </plant>
@@ -279,7 +313,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>RennFiber</defName>
     <label>renn fiber</label>
-    <description>Ren fibers are the main nutrition for the name-giving renn microbes. Can be fed to the renn pond.</description>
+    <description>Ren fibers are the main nutrition for the name-giving renn microbes. Can be fed to the renn pond and renn tank.\nThreat reduction of additional 12%. Causes a negative mood of 3.</description>
     <graphicData>
       <texPath>RennFiber/RennFiber</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -360,6 +394,7 @@
       <sowWork>200</sowWork>
       <dieIfLeafless>true</dieIfLeafless>
       <harvestTag>Standard</harvestTag>
+      <immatureGraphicPath>Plant_RennFiber/RennFiber_Immature</immatureGraphicPath>
       <harvestedThingDef>RennFiberDomestic</harvestedThingDef>
       <harvestYield>1</harvestYield>
       <neverBlightable>true</neverBlightable>
@@ -367,9 +402,9 @@
         <li>Ground</li>
       </sowTags>
       <sowMinSkill>10</sowMinSkill>
-      <!--<sowResearchPrerequisites>
-        <li>Devilstrand</li>
-      </sowResearchPrerequisites>-->
+      <sowResearchPrerequisites>
+        <li>Research_RennFiberDomestic</li>
+      </sowResearchPrerequisites>
       <topWindExposure>0.1</topWindExposure>
       <visualSizeRange>0.3~1.0</visualSizeRange>
       <wildOrder>2</wildOrder>
@@ -379,7 +414,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>RennFiberDomestic</defName>
     <label>domestic renn fiber</label>
-    <description>Domestic ren fibers are the result of years of crossbreeding and a more nutrituous alternative for the name-giving renn microbes. Can be fed to the renn pond directly or further enhanced in the drug cabinet to create renn powder.</description>
+    <description>Domestic ren fibers are the result of years of crossbreeding and a more nutrituous alternative for the name-giving renn microbes. Can be fed to the renn pond directly or further enhanced in the drug cabinet to create renn powder.\nThreat reduction of additional 24%. Causes a negative mood of 6.</description>
     <graphicData>
       <texPath>RennFiberDomestic/RennFiberDomestic</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -444,7 +479,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>RennPowder</defName>
     <label>renn powder</label>
-    <description>This substance is renn fibers grind down to a pulvery and nutritious substance that is easy to be digested by renn microbes in a renn pond or chemical renn reactor.</description>
+    <description>This substance is renn fibers grind down to a pulvery and nutritious substance that is easy to be digested by renn microbes in a renn pond or renn tank.\nThreat reduction of additional 36%. Causes a negative mood of 9.</description>
     <graphicData>
       <texPath>RennPowder/RennPowder</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -490,6 +525,7 @@
       <sowWork>400</sowWork>
       <dieIfLeafless>true</dieIfLeafless>
       <harvestTag>Standard</harvestTag>
+      <immatureGraphicPath>Plant_RennFiberEngineered/RennFiberEngineered_Immature</immatureGraphicPath>
       <harvestedThingDef>RennFiberEngineered</harvestedThingDef>
       <harvestYield>1</harvestYield>
       <neverBlightable>true</neverBlightable>
@@ -497,9 +533,9 @@
         <li>Hydroponic</li>
       </sowTags>
       <sowMinSkill>16</sowMinSkill>
-      <!--<sowResearchPrerequisites>
-        <li>Devilstrand</li>
-      </sowResearchPrerequisites>-->
+      <sowResearchPrerequisites>
+        <li>Research_RennFiberEngineered</li>
+      </sowResearchPrerequisites>
       <topWindExposure>0.1</topWindExposure>
       <visualSizeRange>0.3~1.0</visualSizeRange>
       <wildOrder>2</wildOrder>
@@ -509,7 +545,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>RennFiberEngineered</defName>
     <label>engineered renn fiber</label>
-    <description>Genetically engineered ren fibers are the result of strong genetic modifications and a most nutrituous alternative for the name-giving renn microbes. While it cannot be fed to the renn microbes directly anymore, it can be further enhanced in the drug cabinet to create renn concentrate - the most powerful nutrition to renn microbes known to mankind.</description>
+    <description>Genetically engineered ren fibers are the result of strong genetic modifications and a most nutrituous alternative for the name-giving renn microbes. While it cannot be fed to the renn microbes directly anymore, it can be further enhanced in the brewery to create renn concentrate - the most powerful nutrition to renn microbes known to mankind.</description>
     <graphicData>
       <texPath>RennFiberEngineered/RennFiberEngineered</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -574,7 +610,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>RennConcentrate</defName>
     <label>renn concentrate</label>
-    <description>This substance is genetically engineered renn fibers destilled down to make them digestible again for renn microbes. Can be fed into renn reactors or used as payload in renn capsules for the renn portal.</description>
+    <description>This substance is genetically engineered renn fibers destilled down to make them digestible again for renn microbes. Can be fed into renn tanks or used as payload in renn capsules for the renn gate.\nThreat reduction of additional 48%. Causes a negative mood of 12.</description>
     <graphicData>
       <texPath>RennConcentrate/RennConcentrate</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -604,7 +640,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>RennCapsule</defName>
     <label>renn capsule</label>
-    <description>A delivery mechanism for payloads capable of carrying substances safely through the renn gate. Contains concentrated, genetically engineered renn fiber extract.</description>
+    <description>A delivery mechanism for payloads capable of carrying substances safely through the renn gate. \nContains concentrated, genetically engineered renn fiber extract boosting the activity of the renn organisms.\nThreat reduction of additional 60%. Causes a negative mood of 15.</description>
     <graphicData>
       <texPath>RennCapsule/RennCapsule</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -635,7 +671,7 @@
   <!-- UnfinishedRennCapsule -->
   <ThingDef ParentName="UnfinishedBase">
     <defName>UnfinishedRennCapsule</defName>
-    <label>unfinished renn capsule</label>
+    <label>Unfinished renn capsule</label>
     <description>An unfinished renn capsule.</description>
     <statBases>
       <Flammability>0.5</Flammability>
@@ -646,7 +682,4 @@
     </graphicData>
     <stuffCategories Inherit="false" />
   </ThingDef>
-
-
-
 </Defs>

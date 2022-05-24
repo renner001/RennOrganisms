@@ -31,6 +31,7 @@
     <products>
       <RennPowder>10</RennPowder>
     </products>
+    <researchPrerequisite>Research_RennPowder</researchPrerequisite>
   </RecipeDef>
   <!-- Make_RennConcentrate -->
   <RecipeDef>
@@ -63,6 +64,7 @@
     <products>
       <RennConcentrate>10</RennConcentrate>
     </products>
+    <researchPrerequisite>Research_RennConcentrate</researchPrerequisite>
   </RecipeDef>
   <!-- Make_RennCapsule -->
   <RecipeDef>
@@ -116,5 +118,6 @@
       <Crafting>16</Crafting>
     </skillRequirements>
     <workSkill>Crafting</workSkill>
+    <researchPrerequisite>Research_RennCapsule</researchPrerequisite>
   </RecipeDef>
 </Defs>

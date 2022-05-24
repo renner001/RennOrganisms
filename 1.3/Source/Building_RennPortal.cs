@@ -11,12 +11,5 @@ namespace DanielRenner.RennOrganisms
 {
 
     class Building_RennPortal : Building_RennBase
-    {
-        public Building_RennPortal()
-        {
-            baseMoodEffectOfBuilding = 9;
-            minThreatLoss = 5000;
-        }
-
-    }
+    { }
 }

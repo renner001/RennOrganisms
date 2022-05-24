@@ -37,29 +37,14 @@ namespace DanielRenner.RennOrganisms
 
 		public override string SettingsCategory()
 		{
-			return Translations_RennOrganisms.SettingsPanelName;
+			return Translations_RennOrganisms.Static.SettingsPanelName;
 		}
 
 
 		public override void DoSettingsWindowContents(Rect rect)
 		{
-
-			Rect descriptionRect = rect.TopPartPixels(Text.CalcHeight(Translations_RennOrganisms.SettingsPanelChangeSettingsEffect, rect.width));
-			Rect mainRect = rect.BottomPartPixels(rect.height - descriptionRect.height - 50);
-			Widgets.Label(descriptionRect, Translations_RennOrganisms.SettingsPanelChangeSettingsEffect);
-
-
-			Rect leftRect = mainRect.LeftHalf().Rounded();
-			Rect rightRect = mainRect.RightHalf().Rounded();
-
-			Listing_Standard listLeft = new Listing_Standard()
-			{
-				ColumnWidth = leftRect.width,
-			};
-
-			listLeft.Begin(leftRect);
-			//listLeft.CheckboxLabeled(Translations_RennOrganisms.EnableResearchGlobalWorkSpeed, ref ModSettings_RennOrganisms.enabledResearchGlobalWorkSpeed, Translations_RennOrganisms.EnableResearchGlobalWorkSpeedTooltip);
-			listLeft.End();
+            // we will put the rendering code into the settings class - where it belongs...
+            ModSettings_RennOrganisms.DoSettingsWindowContents(rect);
 		}
 	}
 }

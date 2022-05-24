@@ -12,7 +12,7 @@ namespace DanielRenner.RennOrganisms
     /// <summary>
     /// The original CompRefuelable does not notify about what has been fueled into it. Therefore we override the class and extend the Refuel(num) method to also notify about the type of item fueled into it
     /// </summary>
-    class Comp_SpecificRefuelable : CompRefuelable
+    public class Comp_SpecificRefuelable : CompRefuelable
     {
         public ThingDef lastRefueledWith;
 

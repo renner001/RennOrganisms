@@ -3,15 +3,10 @@
   <ResearchProjectDef>
     <defName>Research_RennPonds</defName>
     <label>Renn Ponds</label>
-    <description>The anchient stories of this places speak of renn ponds - mythic, glowing ponds that bring luck and depair alike.</description>
+    <description>The anchient stories of this places speak of renn ponds - mythic, glowing ponds that bring luck and depair alike.\nA pond inhabited by renn. Renn are invisibly small. \nAnchient stories speak of friends to the microbes: Their friends are always favored by luck and rarely see enemies at their gates. Yet their societies are also plagued by infighting and mood swings. \nOne can't have everything, it seems.\n\nRenn ponds offer a flat reduction of threats by 250 threat points or 12% - whatever is bigger.\nThey impose a -3 penalty to the mood of your people.</description>
     <baseCost>100</baseCost>
     <techLevel>Neolithic</techLevel>
     <tab>RennOrganisms</tab>
-    <!--<prerequisites>
-      <li>ProductivityII</li>
-      <li>MicroelectronicsBasics</li>
-    </prerequisites>-->
-    <!--<tab>StatUpgrades</tab>-->
     <researchViewX>0</researchViewX>
     <researchViewY>0</researchViewY>
   </ResearchProjectDef>
@@ -22,11 +17,6 @@
     <baseCost>100</baseCost>
     <techLevel>Neolithic</techLevel>
     <tab>RennOrganisms</tab>
-    <!--<prerequisites>
-      <li>ProductivityII</li>
-      <li>MicroelectronicsBasics</li>
-    </prerequisites>-->
-    <!--<tab>StatUpgrades</tab>-->
     <researchViewX>0</researchViewX>
     <researchViewY>1</researchViewY>
   </ResearchProjectDef>
@@ -34,14 +24,13 @@
     <defName>Research_RennFiberDomestic</defName>
     <label>Domestic Renn Fibers</label>
     <description>More nutritious seeds of Renn Fiber will improve the effect of Renn Ponds.</description>
-    <baseCost>100</baseCost>
-    <techLevel>Neolithic</techLevel>
+    <baseCost>500</baseCost>
+    <techLevel>Medieval</techLevel>
     <tab>RennOrganisms</tab>
     <prerequisites>
       <li>Research_RennFiber</li>
       <li>Research_RennPonds</li>
     </prerequisites>
-    <!--<tab>StatUpgrades</tab>-->
     <researchViewX>1</researchViewX>
     <researchViewY>1</researchViewY>
   </ResearchProjectDef>
@@ -49,13 +38,12 @@
     <defName>Research_RennReactor</defName>
     <label>Renn Tanks</label>
     <description>Grinding the domestic Renn fiber down into a fine powder increases the absorption of the nutrients in renn tanks.</description>
-    <baseCost>100</baseCost>
+    <baseCost>1000</baseCost>
     <techLevel>Industrial</techLevel>
     <tab>RennOrganisms</tab>
     <prerequisites>
       <li>Research_RennPonds</li>
     </prerequisites>
-    <!--<tab>StatUpgrades</tab>-->
     <researchViewX>2</researchViewX>
     <researchViewY>0</researchViewY>
   </ResearchProjectDef>
@@ -63,13 +51,12 @@
     <defName>Research_RennPowder</defName>
     <label>Renn Powder</label>
     <description>Grinding the domestic Renn fiber down into a fine powder increases the absorption of the nutrients in renn tanks.</description>
-    <baseCost>100</baseCost>
+    <baseCost>1000</baseCost>
     <techLevel>Industrial</techLevel>
     <tab>RennOrganisms</tab>
     <prerequisites>
       <li>Research_RennFiberDomestic</li>
     </prerequisites>
-    <!--<tab>StatUpgrades</tab>-->
     <researchViewX>2</researchViewX>
     <researchViewY>1</researchViewY>
   </ResearchProjectDef>
@@ -77,13 +64,12 @@
     <defName>Research_RennFiberEngineered</defName>
     <label>Engineered Renn Fibers</label>
     <description>By careful genetic engineering we can manage to maximize the nutritious parts of the Renn fiber.</description>
-    <baseCost>100</baseCost>
+    <baseCost>2000</baseCost>
     <techLevel>Industrial</techLevel>
     <tab>RennOrganisms</tab>
     <prerequisites>
       <li>Research_RennFiberDomestic</li>
     </prerequisites>
-    <!--<tab>StatUpgrades</tab>-->
     <researchViewX>2</researchViewX>
     <researchViewY>2</researchViewY>
   </ResearchProjectDef>
@@ -97,7 +83,6 @@
     <prerequisites>
       <li>Research_RennFiberEngineered</li>
     </prerequisites>
-    <!--<tab>StatUpgrades</tab>-->
     <researchViewX>3</researchViewX>
     <researchViewY>2</researchViewY>
   </ResearchProjectDef>
@@ -111,21 +96,19 @@
     <prerequisites>
       <li>Research_RennReactor</li>
     </prerequisites>
-    <!--<tab>StatUpgrades</tab>-->
     <researchViewX>4</researchViewX>
     <researchViewY>0</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
-    <defName>Research_RennCapsules</defName>
+    <defName>Research_RennCapsule</defName>
     <label>Renn Capsules</label>
-    <description>In order to inject renn concentrate directly into the home-dimension of the renn microbes, we will need a delivery container.</description>
+    <description>In order to inject renn concentrate directly into the home-dimension of the renn microbes, we will need this delivery container.</description>
     <baseCost>3000</baseCost>
     <techLevel>Spacer</techLevel>
     <tab>RennOrganisms</tab>
     <prerequisites>
       <li>Research_RennConcentrate</li>
     </prerequisites>
-    <!--<tab>StatUpgrades</tab>-->
     <researchViewX>4</researchViewX>
     <researchViewY>2</researchViewY>
   </ResearchProjectDef>
