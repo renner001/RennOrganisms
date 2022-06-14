@@ -30,7 +30,7 @@ namespace DanielRenner.RennOrganisms
         {
             get
             {
-                return def.availableFeedOptions;
+                return def.Feeds.Select(feed => feed.Feed).ToList();
             }
         }
         private Comp_SpecificRefuelable refuelable;
@@ -63,10 +63,17 @@ namespace DanielRenner.RennOrganisms
             base.PostMake();
             if (feedOptionSelected == FeedOptions.notDefined)
             {
-                Log.Debug("Building_RennBase.PostMake() setting up inital feed setting to " + availableFeedOptions);
+                Log.Debug("Building_RennBase.PostMake() setting up inital feed setting to " + availableFeedOptions[0]);
                 updateRefuelComp(availableFeedOptions[0]);
             }
-        }        
+            updateInspectString();
+        }
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            Log.Debug("Building_RennBase.SpawnSetup() called");
+            base.SpawnSetup(map, respawningAfterLoad);
+        }
 
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
@@ -76,11 +83,35 @@ namespace DanielRenner.RennOrganisms
             base.Destroy(mode);
         }
 
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+        {
+            Log.Debug("Building_RennBase.DeSpawn() called");
+            var rennPondManager = Current.Game?.GetComponent<GameComponent_RennPondManager>();
+            rennPondManager.RemoveTrackedThing(this);
+            base.DeSpawn(mode);
+        }
+
+        private string cachedInspectThreatpoints = "";
+        public override string GetInspectString()
+        {
+            var baseString = base.GetInspectString();
+            return baseString + cachedInspectThreatpoints;
+        }
+        private void updateInspectString()
+        {
+            var rennPondManager = Current.Game?.GetComponent<GameComponent_RennPondManager>();
+            var map = Current.Game?.CurrentMap;
+            var settings = rennPondManager.GetCurrentTotalSettings(map);
+
+            var inspectString = "\nCurrent threat points: " + StorytellerUtility.DefaultThreatPointsNow(map) + "\n";
+            inspectString += "based on a threat reduction of " + Math.Round((1f - settings.threatMultiplier) * 100) + "% or " + settings.minThreatReduction + " points on this map.";
+            this.cachedInspectThreatpoints = inspectString;
+        }
+
 
         protected override void ReceiveCompSignal(string signal)
         {
             Log.Debug("Building_RennPond.ReceiveCompSignal() called with signal '" + signal + "'");
-            base.ReceiveCompSignal(signal);
             if (signal == "Refueled")
             {
                 var lastRefueledWith = Refuelable.lastRefueledWith;
@@ -112,11 +143,13 @@ namespace DanielRenner.RennOrganisms
                 else if (lastRefueledWith == null) // in debug mode, the debug buttons refuel with null
                 {
                     Log.Debug("debug tools used to refuel");
+                    lastFed = feedOptionSelected;
                 }
                 else
                 {
                     Log.Error("refueled with invalid fuel '" + lastRefueledWith + "'");
                 }
+                base.ReceiveCompSignal(signal);
             }
         }
 
@@ -126,34 +159,37 @@ namespace DanielRenner.RennOrganisms
         /// <returns></returns>
         protected virtual void updateThreatPoints(ref RennPondSettings settings)
         {
-            int moodEffect = def.baseMoodEffectOfBuildingUnpoweredAndUnfueled;
-            if ((Power == null || (Power != null && Power.PowerOn)))
+            int moodEffect = 0;
+            float threatMultiplier = 1.0f;
+            int minThreatReduction = 0;
+            if (!def.RequiresPowerForBaseRennEffect || (def.RequiresPowerForBaseRennEffect && Power != null && Power.PowerOn))
             {
-                moodEffect += def.moodOffsetOfBuildingPowered;
+                moodEffect = def.MoodOffsetBase;
+                threatMultiplier = def.ThreatMultiplierBase;
+                minThreatReduction = def.MinThreatReductionBase;
+            }
+            if (Power == null || (Power != null && Power.PowerOn))
+            {
                 if (Refuelable != null && Refuelable.HasFuel) {
-                    switch (lastFed)
+                    if (lastFed != FeedOptions.notDefined)
                     {
-                        case FeedOptions.RennFiber:
-                            moodEffect += def.moodOffsetFedRennFiber;
-                            break;
-                        case FeedOptions.RennFiberDomestic:
-                            moodEffect += def.moodOffsetFedRennFiberDomestic;
-                            break;
-                        case FeedOptions.RennPowder:
-                            moodEffect += def.moodOffsetFedRennPowder;
-                            break;
-                        case FeedOptions.RennConcentrate:
-                            moodEffect += def.moodOffsetFedRennConcentrate;
-                            break;
-                        case FeedOptions.RennCapsule:
-                            moodEffect += def.moodOffsetFedRennCapsule;
-                            break;
+                        var feedSetting = def.Feeds.FirstOrDefault(feed => { return feed.Feed == lastFed; });
+                        if (feedSetting != null)
+                        {
+                            moodEffect += feedSetting.MoodOffset;
+                            minThreatReduction += feedSetting.MinThreatReduction;
+                            threatMultiplier = -1 + threatMultiplier + feedSetting.ThreatMultiplier;
+                        }
+                        else
+                        {
+                            Log.ErrorOnce("feed settings are missing for " + lastFed, 42835412);
+                        }
                     }
                 }
             }
-            settings.threatMultiplier = 1.0f - def.moodToThreatMultiplier * moodEffect;
-            settings.threatCap = def.maxThreatCap;
-            settings.minThreatReduction = def.minThreatReduction;
+            settings.threatMultiplier = threatMultiplier;
+            settings.threatCap = def.MaxThreatCap;
+            settings.minThreatReduction = minThreatReduction;
             moodEffect = (int)Math.Round((double)moodEffect * ModSettings_RennOrganisms.moodMultipilerSettingsPercent / 100, 0);
             settings.moodEffect = moodEffect;
         }
@@ -168,6 +204,7 @@ namespace DanielRenner.RennOrganisms
                     mySettings = new RennPondSettings();
                 }
                 updateThreatPoints(ref mySettings);
+                updateInspectString();
                 NotifyGameComponentAboutThreatpoints();
             }
         }

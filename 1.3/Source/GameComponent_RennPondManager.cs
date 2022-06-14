@@ -52,18 +52,19 @@ namespace DanielRenner.RennOrganisms
             {
                 foreach (var map in Find.Maps)
                 {
-                    var currSettings = GetCurrentSettings(map);
+                    var currSettings = GetCurrentTotalSettings(map);
                     if (prevThreatSettings.ContainsKey(map))
                     {
                         if (loadedGame.CurrentMap == map && prevThreatSettings[map] != currSettings.threatMultiplier)
                         {
-                            Messages.Message("A shift in the mood of the renn microbes results in future threat levels around " + Math.Round(currSettings.threatMultiplier*100, 0) + "%", MessageTypeDefOf.CautionInput);
+                            var threatpoint = Math.Round(StorytellerUtility.DefaultThreatPointsNow(map));
+                            Messages.Message("A shift in the mood of the renn microbes results in future threat levels around " + Math.Round(currSettings.threatMultiplier*100, 0) + "% - around " + threatpoint + " points.", MessageTypeDefOf.CautionInput);
                         }
                     }
                     prevThreatSettings[map] = currSettings.threatMultiplier;
                     if (map.IsPlayerHome)
                     {
-                        applyMoodEffect(map, GetCurrentSettings(map).moodEffect);
+                        applyMoodEffect(map, currSettings.moodEffect);
                     }
                 }
             }
@@ -103,27 +104,31 @@ namespace DanielRenner.RennOrganisms
             Log.Debug("GameComponent_RennPondManager.ExposeData(): " + String.Join(", ", knownThreatSettings.Select(setting => { return setting.Key.ToString() + ": threatCap=" + setting.Value.threatCap + "; threatMultiplier=" + setting.Value.threatMultiplier; })));
         }
 
-        public RennPondSettings GetCurrentSettings()
+        public RennPondSettings GetCurrentTotalSettings(Map map = null)
         {
-            Log.DebugOnce("GameComponent_RennPondManager.GetCurrentSettings() is getting called");
+            Log.DebugOnce("GameComponent_RennPondManager.GetCurrentTotalSettings() is getting called");
             shrinkOldSettings();
-            if (knownThreatSettings.Count > 0)
+            IEnumerable<RennPondSettings> validPonds;
+            if (map != null)
             {
-                var bestEntry = knownThreatSettings.MinBy(setting => { return setting.Value.threatMultiplier; });
-                return bestEntry.Value;
+                validPonds = knownThreatSettings.Where(pond => { return pond.Key.Map == map; }).Select(pond => pond.Value).ToArray();
             }
-            return new RennPondSettings();
-        }
-        public RennPondSettings GetCurrentSettings(Map map)
-        {
-            Log.DebugOnce("GameComponent_RennPondManager.GetCurrentSettings() is getting called");
-            shrinkOldSettings();
-            if (knownThreatSettings.Count > 0 && knownThreatSettings.First(setting => { return setting.Key.Map == map; }).Value != null)
+            else
             {
-                var bestEntry = knownThreatSettings.Where(setting => { return setting.Key.Map == map; }).MinBy(setting => { return setting.Value.threatMultiplier; });
-                return bestEntry.Value;
+                validPonds = knownThreatSettings.Select(pond => pond.Value).ToArray();
             }
-            return new RennPondSettings();
+            var toalSettings = new RennPondSettings();
+            foreach (var pond in validPonds)
+            {
+                toalSettings.minThreatReduction += pond.minThreatReduction;
+                if (toalSettings.threatCap > pond.threatCap)
+                {
+                    toalSettings.threatCap = pond.threatCap;
+                }
+                toalSettings.moodEffect += pond.moodEffect;
+                toalSettings.threatMultiplier *= pond.threatMultiplier;
+            }
+            return toalSettings;
         }
 
         public void SetThreatPoints(Thing sender, RennPondSettings settings)
@@ -144,7 +149,7 @@ namespace DanielRenner.RennOrganisms
         private void shrinkOldSettings()
         {
             var oldestValidTick = Find.TickManager.TicksGame - GenTicks.TickLongInterval;
-            var outdatedEntries = knownThreatSettings.Where(setting => { return setting.Value.tickLastReported < oldestValidTick; });
+            var outdatedEntries = knownThreatSettings.Where(setting => { return setting.Value.tickLastReported < oldestValidTick; }).ToArray();
             foreach (var entry in outdatedEntries)
             {
                 Log.Warning("An object seems to have gotten lost: " + entry.Key);

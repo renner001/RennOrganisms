@@ -3,7 +3,7 @@
   <ResearchProjectDef>
     <defName>Research_RennPonds</defName>
     <label>Renn Ponds</label>
-    <description>The anchient stories of this places speak of renn ponds - mythic, glowing ponds that bring luck and depair alike.\nA pond inhabited by renn. Renn are invisibly small. \nAnchient stories speak of friends to the microbes: Their friends are always favored by luck and rarely see enemies at their gates. Yet their societies are also plagued by infighting and mood swings. \nOne can't have everything, it seems.\n\nRenn ponds offer a flat reduction of threats by 250 threat points or 12% - whatever is bigger.\nThey impose a -3 penalty to the mood of your people.</description>
+    <description>The anchient stories of this places speak of renn ponds - mythic, glowing ponds that bring luck and depair alike.\Friends to the ponds are always favored by luck and rarely see enemies at their gates. Yet history tells us their societies are also plagued by infighting and mood swings. \nOne can't have everything, it seems.\n\nRenn ponds offer a flat reduction of threats by 250 threat points or 12% - whatever is bigger.\nThey impose a -3 penalty to the mood of your people.</description>
     <baseCost>100</baseCost>
     <techLevel>Neolithic</techLevel>
     <tab>RennOrganisms</tab>

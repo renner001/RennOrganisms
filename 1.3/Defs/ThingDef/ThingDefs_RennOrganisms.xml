@@ -4,7 +4,7 @@
   <ThingDef ParentName="BuildingBase" Class="DanielRenner.RennOrganisms.Building_RennBaseDef">
     <defName>RennPond</defName>
     <label>renn pond</label>
-    <description>A pond inhabited by renn organisms. Renn microbes are invisibly small and have a peculiar connection to reality: \nAnchient stories speak of friends to the microbes. Their friends are always favored by luck and rarely see enemies at their gates. Yet their societies are plagued by infighting and mood swings. \nOne can't have everything, it seems.\n\nRenn ponds offer a flat reduction of threats by 250 threat points or 12% - whatever is bigger.\nThey impose a -3 penalty to the mood of your people.</description>
+    <description>A pond inhabited by renn microbes. The anchient stories speak of friends to the microbes - they are always favored by luck and rarely see enemies at their gates. Yet their societies are plagued by infighting and mood swings. \nOne can't have everything, it seems.\n\nRenn ponds offer a flat reduction of threats by 300 threat points or 6% - whatever is bigger.\nThey impose a -3 penalty to the mood of your people. The effects can be increased by feeding the renn: Renn fibers (700 points or 12%), Domestic renn fibers (1200 points or 18%). Building more ponds will increase the effect.</description>
     <thingClass>DanielRenner.RennOrganisms.Building_RennPond</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
@@ -37,20 +37,24 @@
     <costList>
       <WoodLog>100</WoodLog>
     </costList>
-    <baseMoodEffectOfBuildingUnpoweredAndUnfueled>3</baseMoodEffectOfBuildingUnpoweredAndUnfueled>
-    <moodOffsetOfBuildingPowered>0</moodOffsetOfBuildingPowered>
-    <moodToThreatMultiplier>0.04</moodToThreatMultiplier>
-    <maxThreatCap>500000</maxThreatCap>
-    <minThreatReduction>250</minThreatReduction>
-    <moodOffsetFedRennFiber>3</moodOffsetFedRennFiber>
-    <moodOffsetFedRennFiberDomestic>6</moodOffsetFedRennFiberDomestic>
-    <moodOffsetFedRennPowder>9</moodOffsetFedRennPowder>
-    <moodOffsetFedRennConcentrate>12</moodOffsetFedRennConcentrate>
-    <moodOffsetFedRennCapsule>15</moodOffsetFedRennCapsule>
-    <availableFeedOptions>
-      <li>RennFiber</li>
-      <li>RennFiberDomestic</li>
-    </availableFeedOptions>
+    <RequiresPowerForBaseRennEffect>false</RequiresPowerForBaseRennEffect>
+    <ThreatMultiplierBase>0.94</ThreatMultiplierBase>
+    <MinThreatReductionBase>300</MinThreatReductionBase>
+    <MoodOffsetBase>3</MoodOffsetBase>
+    <Feeds>
+      <li>
+        <Feed>RennFiber</Feed>
+        <MoodOffset>3</MoodOffset>
+        <ThreatMultiplier>0.94</ThreatMultiplier>
+        <MinThreatReduction>400</MinThreatReduction>
+      </li>
+      <li>
+        <Feed>RennFiberDomestic</Feed>
+        <MoodOffset>6</MoodOffset>
+        <ThreatMultiplier>0.88</ThreatMultiplier>
+        <MinThreatReduction>900</MinThreatReduction>
+      </li>
+    </Feeds>
     <comps>
       <li Class="DanielRenner.RennOrganisms.CompProperties_SpecificRefuelable">
         <fuelConsumptionRate>10.0</fuelConsumptionRate>
@@ -90,7 +94,7 @@
   <ThingDef ParentName="BuildingBase"  Class="DanielRenner.RennOrganisms.Building_RennBaseDef">
     <defName>RennReactor</defName>
     <label>Renn tank</label>
-    <description>A tank inhabited by a dense amount of renn microbes. Renn microbes are invisibly small and have a peculiar connection to reality: \nAnchient stories speak of friends to the microbes. Their friends are always favored by luck and rarely see enemies at their gates. Yet their societies are plagued by infighting and mood swings. \nOne can't have everything, it seems.\n\nRenn tanks offer a flat reduction of threats by 5000 threat points or 24% - whatever is bigger.\nThey impose a -6 penalty to the mood of your people.</description>
+    <description>A tank inhabited by a dense amount of renn microbes. \nAnchient stories speak of friends to the microbes- they are always favored by luck and rarely see enemies at their gates. Yet their societies are plagued by infighting and mood swings. \nOne can't have everything, it seems.\n\nRenn tanks offer a flat reduction of threats by 900 threat points or 18% - whatever is bigger.\nThey impose a -9 penalty to the mood of your people. The effects can be increased by feeding the renn: Domestic renn fibers (1800 points or 30%), renn powder (2300 points or 48%) or renn concentrate (2400 points or 58%). Building more tanks will increase the effect.</description>
     <thingClass>DanielRenner.RennOrganisms.Building_RennReactor</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
@@ -124,21 +128,30 @@
       <Steel>300</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
-    <baseMoodEffectOfBuildingUnpoweredAndUnfueled>6</baseMoodEffectOfBuildingUnpoweredAndUnfueled>
-    <moodOffsetOfBuildingPowered>0</moodOffsetOfBuildingPowered>
-    <moodToThreatMultiplier>0.04</moodToThreatMultiplier>
-    <maxThreatCap>500000</maxThreatCap>
-    <minThreatReduction>1000</minThreatReduction>
-    <moodOffsetFedRennFiber>3</moodOffsetFedRennFiber>
-    <moodOffsetFedRennFiberDomestic>6</moodOffsetFedRennFiberDomestic>
-    <moodOffsetFedRennPowder>9</moodOffsetFedRennPowder>
-    <moodOffsetFedRennConcentrate>12</moodOffsetFedRennConcentrate>
-    <moodOffsetFedRennCapsule>15</moodOffsetFedRennCapsule>
-    <availableFeedOptions>
-      <li>RennFiberDomestic</li>
-      <li>RennPowder</li>
-      <li>RennConcentrate</li>
-    </availableFeedOptions>
+    <RequiresPowerForBaseRennEffect>false</RequiresPowerForBaseRennEffect>
+    <ThreatMultiplierBase>0.82</ThreatMultiplierBase>
+    <MinThreatReductionBase>900</MinThreatReductionBase>
+    <MoodOffsetBase>9</MoodOffsetBase>
+    <Feeds>
+      <li>
+        <Feed>RennFiberDomestic</Feed>
+        <MoodOffset>6</MoodOffset>
+        <ThreatMultiplier>0.88</ThreatMultiplier>
+        <MinThreatReduction>900</MinThreatReduction>
+      </li>
+      <li>
+        <Feed>RennPowder</Feed>
+        <MoodOffset>12</MoodOffset>
+        <ThreatMultiplier>0.7</ThreatMultiplier>
+        <MinThreatReduction>1400</MinThreatReduction>
+      </li>
+      <li>
+        <Feed>RennConcentrate</Feed>
+        <MoodOffset>15</MoodOffset>
+        <ThreatMultiplier>0.6</ThreatMultiplier>
+        <MinThreatReduction>1500</MinThreatReduction>
+      </li>
+    </Feeds>
     <comps>
       <li Class="CompProperties_Flickable"/>
       <li Class="DanielRenner.RennOrganisms.CompProperties_SpecificRefuelable">
@@ -185,7 +198,7 @@
   <ThingDef ParentName="BuildingBase"  Class="DanielRenner.RennOrganisms.Building_RennBaseDef">
     <defName>RennPortal</defName>
     <label>Renn gate</label>
-    <description>A gateway between the realm of men and the native realm of the renn organisms. Renn are non-sentient beings living in multiple dimensions at the same time. Their this-worldly form are microbes that are invisibly small. \nThey have a peculiar effect to reality in our dimension: As long as they are well fed, they will try to maintain the source of their food, e.g. us. How they are doing this is not yet explainable, but it results in what is commonly known as luck: External threats to our society like raids are heavily reduced. Besides nutrition, they also feed on our colonists mood causing social infights in colonies not perfectly managed. One can't have everything, it seems.\n\nRenn gates as long as powered offer a flat reduction of threats by 20000 threat points or 36% - whatever is bigger.\nThey impose a -9 penalty to the mood of your people.</description>
+    <description>A gateway between the realm of men and the native realm of the renn organisms. Renn are non-sentient beings living in multiple dimensions at the same time. Their this-worldly form are microbes that are invisibly small. \nThey have a peculiar effect to reality in our dimension: As long as they are well fed, they will try to maintain the source of their food, e.g. us. How they are doing this is not yet explainable, but it results in what is commonly known as luck: External threats to our society like raids are heavily reduced. Besides nutrition, they also feed on our colonists mood causing social infights in colonies not perfectly managed. One can't have everything, it seems.\n\nRenn gates as long as powered offer a flat reduction of threats by 1800 threat points or 36% - whatever is bigger.\nThey impose a -18 penalty to the mood of your people. Feeding Renn capsules into the gateway will increase the effect to a whoping 96%. Building more gates will increase the effect.</description>
     <thingClass>DanielRenner.RennOrganisms.Building_RennPortal</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
@@ -222,19 +235,18 @@
       <ComponentIndustrial>12</ComponentIndustrial>
       <ComponentSpacer>4</ComponentSpacer>
     </costList>
-    <baseMoodEffectOfBuildingUnpoweredAndUnfueled>0</baseMoodEffectOfBuildingUnpoweredAndUnfueled>
-    <moodOffsetOfBuildingPowered>9</moodOffsetOfBuildingPowered>
-    <moodToThreatMultiplier>0.04</moodToThreatMultiplier>
-    <maxThreatCap>500000</maxThreatCap>
-    <minThreatReduction>5000</minThreatReduction>
-    <moodOffsetFedRennFiber>3</moodOffsetFedRennFiber>
-    <moodOffsetFedRennFiberDomestic>6</moodOffsetFedRennFiberDomestic>
-    <moodOffsetFedRennPowder>9</moodOffsetFedRennPowder>
-    <moodOffsetFedRennConcentrate>12</moodOffsetFedRennConcentrate>
-    <moodOffsetFedRennCapsule>15</moodOffsetFedRennCapsule>
-    <availableFeedOptions>
-      <li>RennCapsule</li>
-    </availableFeedOptions>
+    <RequiresPowerForBaseRennEffect>true</RequiresPowerForBaseRennEffect>
+    <ThreatMultiplierBase>0.64</ThreatMultiplierBase>
+    <MinThreatReductionBase>1800</MinThreatReductionBase>
+    <MoodOffsetBase>18</MoodOffsetBase>
+    <Feeds>
+      <li>
+        <Feed>RennCapsule</Feed>
+        <MoodOffset>18</MoodOffset>
+        <ThreatMultiplier>0.4</ThreatMultiplier>
+        <MinThreatReduction>1800</MinThreatReduction>
+      </li>
+    </Feeds>
     <comps>
       <li Class="CompProperties_Flickable"/>
       <li Class="DanielRenner.RennOrganisms.CompProperties_SpecificRefuelable">
@@ -343,7 +355,7 @@
         <li>Fabric</li>
       </categories>
       <color>(100,100,100)</color>
-      <commonality>1.8</commonality>
+      <commonality>0.1</commonality>
       <allowColorGenerators>true</allowColorGenerators>
       <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
     </stuffProps>
@@ -444,7 +456,7 @@
         <li>Fabric</li>
       </categories>
       <color>(200,200,200)</color>
-      <commonality>1.8</commonality>
+      <commonality>0.1</commonality>
       <allowColorGenerators>true</allowColorGenerators>
       <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
     </stuffProps>
@@ -575,7 +587,7 @@
         <li>Fabric</li>
       </categories>
       <color>(255,255,255)</color>
-      <commonality>1.8</commonality>
+      <commonality>0.1</commonality>
       <allowColorGenerators>true</allowColorGenerators>
       <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
     </stuffProps>

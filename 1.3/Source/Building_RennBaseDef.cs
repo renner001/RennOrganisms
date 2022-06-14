@@ -3,19 +3,21 @@ using Verse;
 
 namespace DanielRenner.RennOrganisms
 {
-    public class Building_RennBaseDef : ThingDef {
-        public List<FeedOptions> availableFeedOptions;
-        public int baseMoodEffectOfBuildingUnpoweredAndUnfueled;
-        public int moodOffsetOfBuildingPowered;
-        public float moodToThreatMultiplier = 0.04f;
-        public int maxThreatCap = int.MaxValue;
-        public int minThreatReduction = 0;
+    public class FeedOptionDetails
+    {
+        public FeedOptions Feed;
+        public int MoodOffset;
+        public float ThreatMultiplier;
+        public int MinThreatReduction;
+    }
 
-        public int moodOffsetFedRennFiber = 3;
-        public int moodOffsetFedRennFiberDomestic = 6;
-        public int moodOffsetFedRennPowder = 9;
-        public int moodOffsetFedRennConcentrate = 12;
-        public int moodOffsetFedRennCapsule = 15;
-        //public FeedOptions defaultFeedOptionSelected; we simply use the 
+    public class Building_RennBaseDef : ThingDef {
+        public List<FeedOptionDetails> Feeds;
+        public int MaxThreatCap = int.MaxValue;
+        // base effects without power / feeding
+        public bool RequiresPowerForBaseRennEffect;
+        public float ThreatMultiplierBase;
+        public int MinThreatReductionBase;
+        public int MoodOffsetBase;
     }
 }
