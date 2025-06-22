@@ -44,6 +44,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="1.5\Source\Building_RennBase.cs" />
+    <None Include="1.5\Source\Building_RennBaseDef.cs" />
+    <None Include="1.5\Source\Building_RennPond.cs" />
+    <None Include="1.5\Source\Building_RennPortal.cs" />
+    <None Include="1.5\Source\Building_RennReactor.cs" />
+    <None Include="1.5\Source\CompProperties_SpecificRefuelable.cs" />
+    <None Include="1.5\Source\Comp_SpecificRefuelable.cs" />
+    <None Include="1.5\Source\DefOfs_RennOrganisms.cs" />
+    <None Include="1.5\Source\FeedOptions.cs" />
+    <None Include="1.5\Source\GameComponent_RennPondManager.cs" />
+    <None Include="1.5\Source\Log.cs" />
+    <None Include="1.5\Source\ModSettings_RennOrganisms.cs" />
+    <None Include="1.5\Source\Mod_RennOrganisms.cs" />
+    <Compile Include="1.5\Source\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="1.5\Source\obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <None Include="1.5\Source\Patch_RennOrganisms_AndroidTiers.cs" />
+    <None Include="1.5\Source\Patch_RennPondManager_GetValidPawnsForMoodEffect.cs" />
+    <None Include="1.5\Source\Patch_StorytellerUtility.cs" />
+    <None Include="1.5\Source\Patch_ThingListGroupHelper.cs" />
+    <Compile Include="1.5\Source\Properties\AssemblyInfo.cs" />
+    <None Include="1.5\Source\Textures_RennOrganisms.cs" />
+    <None Include="1.5\Source\Translations_RennOrganisms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +75,40 @@
     <Content Include="1.3\Defs\ThingDef\ThingDefs_RennOrganisms.xml" />
     <Content Include="1.3\Defs\ThoughtDef\ThoughtDefs_RennOrganisms.xml" />
     <Content Include="1.3\Patches\Patches_Buildings.xml" />
+    <Content Include="1.4\Assemblies\RennOrganisms.dll" />
+    <Content Include="1.4\Defs\RecipeDef\RecipeDefs_RennOrganisms.xml" />
+    <Content Include="1.4\Defs\ReseachProjectDef\ResearchProjectDefs_RennOrganisms.xml" />
+    <Content Include="1.4\Defs\ReseachProjectDef\ResearchTabDefs_RennOrganisms.xml" />
+    <Content Include="1.4\Defs\ThingDef\ThingDefs_RennOrganisms.xml" />
+    <Content Include="1.4\Defs\ThoughtDef\ThoughtDefs_RennOrganisms.xml" />
+    <Content Include="1.4\Patches\Patches_Buildings.xml" />
+    <Content Include="1.5\Assemblies\RennOrganisms.dll" />
+    <Content Include="1.5\Defs\RecipeDef\RecipeDefs_RennOrganisms.xml" />
+    <Content Include="1.5\Defs\ReseachProjectDef\ResearchProjectDefs_RennOrganisms.xml" />
+    <Content Include="1.5\Defs\ReseachProjectDef\ResearchTabDefs_RennOrganisms.xml" />
+    <Content Include="1.5\Defs\ThingDef\ThingDefs_RennOrganisms.xml" />
+    <Content Include="1.5\Defs\ThoughtDef\ThoughtDefs_RennOrganisms.xml" />
+    <Content Include="1.5\Patches\Patches_Buildings.xml" />
+    <Content Include="1.5\Source\obj\Debug\DanielRenner.Cravings.csproj.FileListAbsolute.txt" />
+    <Content Include="1.5\Source\obj\Debug\DanielRenner.Cravings.dll" />
+    <Content Include="1.5\Source\obj\Debug\RennOrganisms.csproj.FileListAbsolute.txt" />
+    <Content Include="1.5\Source\obj\Debug\RennOrganisms.dll" />
+    <Content Include="1.5\Source\obj\Debug\RennOrganisms_AndroidPatches.csproj.FileListAbsolute.txt" />
+    <Content Include="1.5\Source\obj\Debug\RennOrganisms_AndroidPatches.dll" />
+    <Content Include="1.5\Source\obj\Debug\RepeatableResearch.csproj.FileListAbsolute.txt" />
+    <Content Include="1.5\Source\obj\Debug\RepeatableResearch.dll" />
+    <Content Include="1.5\Source\obj\Debug\Scenario Letters.csproj.FileListAbsolute.txt" />
+    <Content Include="1.5\Source\obj\Debug\ScenarioLetters.csproj.FileListAbsolute.txt" />
+    <Content Include="1.5\Source\obj\Debug\ScenarioLetters.dll" />
+    <Content Include="1.5\Source\obj\Release\RennOrganisms.csproj.FileListAbsolute.txt" />
+    <Content Include="1.5\Source\obj\Release\RennOrganisms.dll" />
+    <Content Include="1.5\Source\obj\Release\RennOrganisms_AndroidPatches.csproj.FileListAbsolute.txt" />
+    <Content Include="1.5\Source\obj\Release\RennOrganisms_AndroidPatches.dll" />
+    <Content Include="1.5\Source\obj\Release\ScenarioLetters.csproj.FileListAbsolute.txt" />
+    <Content Include="1.5\Source\obj\Release\ScenarioLetters.dll" />
+    <None Include="1.5\Source\RennOrganisms.csproj.user" />
+    <None Include="1.5\Source\RennOrganisms.sln" />
+    <Content Include="androids\Assemblies\RennOrganisms_AndroidPatches.dll" />
     <Content Include="Languages\English\Keyed\keys.xml" />
     <Content Include="Languages\German\DefInjected\ResearchProjectDef\ResearchTabDefs_Repeatable.xml" />
     <Content Include="Languages\German\DefInjected\ThoughtDef\ThoughtDefs_RepeatableResearch.xml" />
@@ -60,6 +116,7 @@
     <Content Include="Languages\German\LanguageInfo.xml" />
     <Content Include="About\About.xml" />
     <Content Include="About\Preview.png" />
+    <Content Include="LoadFolders.xml" />
     <Content Include="Releases\2022-05-22\1.3\Assemblies\RennOrganisms.dll" />
     <Content Include="Releases\2022-05-22\1.3\Defs\RecipeDef\RecipeDefs_RennOrganisms.xml" />
     <Content Include="Releases\2022-05-22\1.3\Defs\ReseachProjectDef\ResearchProjectDefs_RennOrganisms.xml" />
@@ -158,11 +215,40 @@
   <ItemGroup>
     <Folder Include="1.3\Assemblies\" />
     <Folder Include="1.3\Defs\Stats\" />
+    <Folder Include="1.4\Defs\Stats\" />
+    <Folder Include="1.5\Defs\Stats\" />
+    <Folder Include="1.5\Source\bin\Debug\" />
+    <Folder Include="1.5\Source\bin\Release\" />
+    <Folder Include="1.5\Source\obj\Debug\TempPE\" />
+    <Folder Include="1.5\Source\obj\Release\TempPE\" />
     <Folder Include="Releases\2022-05-22\1.3\Defs\Stats\" />
     <Folder Include="Releases\2022-06-14-V0.9\1.3\Defs\Stats\" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="1.5\Source\obj\Debug\DanielRenner.Cravings.csproj.AssemblyReference.cache" />
+    <None Include="1.5\Source\obj\Debug\DanielRenner.Cravings.csproj.CoreCompileInputs.cache" />
+    <None Include="1.5\Source\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="1.5\Source\obj\Debug\RennOrganisms.csproj.AssemblyReference.cache" />
+    <None Include="1.5\Source\obj\Debug\RennOrganisms.csproj.CoreCompileInputs.cache" />
+    <None Include="1.5\Source\obj\Debug\RennOrganisms_AndroidPatches.csproj.AssemblyReference.cache" />
+    <None Include="1.5\Source\obj\Debug\RennOrganisms_AndroidPatches.csproj.CoreCompileInputs.cache" />
+    <None Include="1.5\Source\obj\Debug\RepeatableResearch.csproj.AssemblyReference.cache" />
+    <None Include="1.5\Source\obj\Debug\RepeatableResearch.csproj.CoreCompileInputs.cache" />
+    <None Include="1.5\Source\obj\Debug\Scenario Letters.csproj.AssemblyReference.cache" />
+    <None Include="1.5\Source\obj\Debug\Scenario Letters.csproj.CoreCompileInputs.cache" />
+    <None Include="1.5\Source\obj\Debug\ScenarioLetters.csproj.AssemblyReference.cache" />
+    <None Include="1.5\Source\obj\Debug\ScenarioLetters.csproj.CoreCompileInputs.cache" />
+    <None Include="1.5\Source\obj\Release\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="1.5\Source\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="1.5\Source\obj\Release\RennOrganisms.csproj.AssemblyReference.cache" />
+    <None Include="1.5\Source\obj\Release\RennOrganisms.csproj.CoreCompileInputs.cache" />
+    <None Include="1.5\Source\obj\Release\RennOrganisms_AndroidPatches.csproj.AssemblyReference.cache" />
+    <None Include="1.5\Source\obj\Release\RennOrganisms_AndroidPatches.csproj.CoreCompileInputs.cache" />
+    <None Include="1.5\Source\obj\Release\ScenarioLetters.csproj.AssemblyReference.cache" />
+    <None Include="1.5\Source\obj\Release\ScenarioLetters.csproj.CoreCompileInputs.cache" />
+    <None Include="1.5\Source\RennOrganisms.csproj" />
+    <None Include="1.5\Source\RennOrganisms_AndroidPatches.csproj" />
     <None Include="LICENSE" />
     <None Include="README.md" />
     <None Include="Releases\2022-05-22\LICENSE" />

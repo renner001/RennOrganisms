@@ -76,7 +76,7 @@ namespace DanielRenner.RennOrganisms
             {
                 return;
             }
-            var validPawns = GetValidPawnsForMoodEffect(map);
+            var validPawns = GetValidPawnsForMoodEffect(map).ToArray();
             // todo: increase performance by only doing this once and caching the results
             var rightStage = DefOfs_RennOrganisms.RennOrganisms.stages.FindIndex(stage => { return stage.baseMoodEffect == -1 * moodEffect; });
             if (rightStage < 0)

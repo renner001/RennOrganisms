@@ -27,16 +27,18 @@
     <blockLight>false</blockLight>
     <canOverlapZones>false</canOverlapZones>
     <statBases>
-      <MaxHitPoints>5000</MaxHitPoints>
+      <MaxHitPoints>500</MaxHitPoints>
       <WorkToBuild>12000</WorkToBuild>
       <Flammability>0.0</Flammability>
       <Beauty>10</Beauty>
     </statBases>
     <tickerType>Normal</tickerType>
     <size>(6,6)</size>
-    <costList>
-      <WoodLog>100</WoodLog>
-    </costList>
+	<stuffCategories>
+      <li>Metallic</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>100</costStuffCount>
     <RequiresPowerForBaseRennEffect>false</RequiresPowerForBaseRennEffect>
     <ThreatMultiplierBase>0.94</ThreatMultiplierBase>
     <MinThreatReductionBase>300</MinThreatReductionBase>
@@ -57,7 +59,7 @@
     </Feeds>
     <comps>
       <li Class="DanielRenner.RennOrganisms.CompProperties_SpecificRefuelable">
-        <fuelConsumptionRate>10.0</fuelConsumptionRate>
+        <fuelConsumptionRate>5.0</fuelConsumptionRate>
         <fuelCapacity>30.0</fuelCapacity>
         <fuelFilter>
           <thingDefs>
@@ -83,7 +85,6 @@
       <soundAmbient>GeothermalPlant_Ambience</soundAmbient>
       <destroySound>BuildingDestroyed_Metal_Big</destroySound>-->
     </building>
-    <constructEffect>ConstructMetal</constructEffect>
     <!--<designationHotKey>Misc6</designationHotKey>-->
     <researchPrerequisites>
       <li>Research_RennPonds</li>
@@ -114,7 +115,7 @@
     <blockWind>true</blockWind>
     <scatterableOnMapGen>false</scatterableOnMapGen>
     <fillPercent>1</fillPercent>
-    <blockLight>true</blockLight>
+    <blockLight>false</blockLight>
     <canOverlapZones>false</canOverlapZones>
     <statBases>
       <MaxHitPoints>5000</MaxHitPoints>
@@ -155,7 +156,7 @@
     <comps>
       <li Class="CompProperties_Flickable"/>
       <li Class="DanielRenner.RennOrganisms.CompProperties_SpecificRefuelable">
-        <fuelConsumptionRate>10.0</fuelConsumptionRate>
+        <fuelConsumptionRate>5.0</fuelConsumptionRate>
         <fuelCapacity>30.0</fuelCapacity>
         <consumeFuelOnlyWhenPowered>true</consumeFuelOnlyWhenPowered>
         <fuelFilter>
@@ -220,13 +221,13 @@
     <blockWind>true</blockWind>
     <scatterableOnMapGen>false</scatterableOnMapGen>
     <fillPercent>1</fillPercent>
-    <blockLight>true</blockLight>
+    <blockLight>false</blockLight>
     <canOverlapZones>false</canOverlapZones>
     <statBases>
-      <MaxHitPoints>5000</MaxHitPoints>
-      <WorkToBuild>12000</WorkToBuild>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>10000</WorkToBuild>
       <Flammability>0.0</Flammability>
-      <Beauty>10</Beauty>
+      <Beauty>5</Beauty>
     </statBases>
     <tickerType>Normal</tickerType>
     <size>(6,6)</size>
@@ -250,7 +251,7 @@
     <comps>
       <li Class="CompProperties_Flickable"/>
       <li Class="DanielRenner.RennOrganisms.CompProperties_SpecificRefuelable">
-        <fuelConsumptionRate>10.0</fuelConsumptionRate>
+        <fuelConsumptionRate>5.0</fuelConsumptionRate>
         <fuelCapacity>30.0</fuelCapacity>
         <consumeFuelOnlyWhenPowered>true</consumeFuelOnlyWhenPowered>
         <fuelFilter>
@@ -286,7 +287,7 @@
     <researchPrerequisites>
       <li>Research_RennPortal</li>
     </researchPrerequisites>
-    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
   </ThingDef>
   <!-- Plant_RennFiber -->
   <ThingDef ParentName="PlantBase">
@@ -312,6 +313,7 @@
       <harvestYield>1</harvestYield>
       <sowTags>
         <li>Ground</li>
+        <li>Hydroponic</li>
       </sowTags>
       <sowResearchPrerequisites>
         <li>Research_RennFiber</li>
@@ -355,7 +357,7 @@
         <li>Fabric</li>
       </categories>
       <color>(100,100,100)</color>
-      <commonality>0.1</commonality>
+      <commonality>0.05</commonality>
       <allowColorGenerators>true</allowColorGenerators>
       <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
     </stuffProps>
@@ -412,8 +414,9 @@
       <neverBlightable>true</neverBlightable>
       <sowTags>
         <li>Ground</li>
+        <li>Hydroponic</li>
       </sowTags>
-      <sowMinSkill>10</sowMinSkill>
+      <sowMinSkill>6</sowMinSkill>
       <sowResearchPrerequisites>
         <li>Research_RennFiberDomestic</li>
       </sowResearchPrerequisites>
@@ -456,7 +459,7 @@
         <li>Fabric</li>
       </categories>
       <color>(200,200,200)</color>
-      <commonality>0.1</commonality>
+      <commonality>0.05</commonality>
       <allowColorGenerators>true</allowColorGenerators>
       <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
     </stuffProps>
@@ -540,7 +543,7 @@
       <sowTags>
         <li>Hydroponic</li>
       </sowTags>
-      <sowMinSkill>16</sowMinSkill>
+      <sowMinSkill>12</sowMinSkill>
       <sowResearchPrerequisites>
         <li>Research_RennFiberEngineered</li>
       </sowResearchPrerequisites>
@@ -583,7 +586,7 @@
         <li>Fabric</li>
       </categories>
       <color>(255,255,255)</color>
-      <commonality>0.1</commonality>
+      <commonality>0.01</commonality>
       <allowColorGenerators>true</allowColorGenerators>
       <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
     </stuffProps>
@@ -674,7 +677,6 @@
     <!--<thingSetMakerTags>
       <li>RewardStandardHighFreq</li>
     </thingSetMakerTags>-->
-    <allowedArchonexusCount>5</allowedArchonexusCount>
   </ThingDef>
   <!-- UnfinishedRennCapsule -->
   <ThingDef ParentName="UnfinishedBase">

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>Research_RennPonds</defName>
+    <label>Renn Ponds</label>
+    <description>The anchient stories of this places speak of renn ponds - mythic, glowing ponds that bring luck and depair alike.\nFriends to the ponds are always favored by luck and rarely see enemies at their gates. Yet history tells us their societies are also plagued by infighting and mood swings. \nOne can't have everything, it seems.\n\nRenn ponds offer a flat reduction of threats by 250 threat points or 12% - whatever is bigger.\nThey impose a -3 penalty to the mood of your people.</description>
+    <baseCost>100</baseCost>
+    <techLevel>Neolithic</techLevel>
+    <tab>RennOrganisms</tab>
+    <researchViewX>0</researchViewX>
+    <researchViewY>0</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>Research_RennFiber</defName>
+    <label>Renn Fibers</label>
+    <description>The ponds glow more brightly when fed with Renn Fiber. Now we know how to plant and cultivate it.</description>
+    <baseCost>100</baseCost>
+    <techLevel>Neolithic</techLevel>
+    <tab>RennOrganisms</tab>
+    <researchViewX>0</researchViewX>
+    <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>Research_RennFiberDomestic</defName>
+    <label>Domestic Renn Fibers</label>
+    <description>More nutritious seeds of Renn Fiber will improve the effect of Renn Ponds.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Medieval</techLevel>
+    <tab>RennOrganisms</tab>
+    <prerequisites>
+      <li>Research_RennFiber</li>
+      <li>Research_RennPonds</li>
+    </prerequisites>
+    <researchViewX>1</researchViewX>
+    <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>Research_RennReactor</defName>
+    <label>Renn Tanks</label>
+    <description>Grinding the domestic Renn fiber down into a fine powder increases the absorption of the nutrients in renn tanks.</description>
+    <baseCost>1000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <tab>RennOrganisms</tab>
+    <prerequisites>
+      <li>Research_RennPonds</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>0</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>Research_RennPowder</defName>
+    <label>Renn Powder</label>
+    <description>Grinding the domestic Renn fiber down into a fine powder increases the absorption of the nutrients in renn tanks.</description>
+    <baseCost>1000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <tab>RennOrganisms</tab>
+    <prerequisites>
+      <li>Research_RennFiberDomestic</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>Research_RennFiberEngineered</defName>
+    <label>Engineered Renn Fibers</label>
+    <description>By careful genetic engineering we can manage to maximize the nutritious parts of the Renn fiber.</description>
+    <baseCost>2000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <tab>RennOrganisms</tab>
+    <prerequisites>
+      <li>Research_RennFiberDomestic</li>
+    </prerequisites>
+    <researchViewX>2</researchViewX>
+    <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>Research_RennConcentrate</defName>
+    <label>Renn Concentrate</label>
+    <description>Carefully extracting the chemical components digestible for renn microbes from engineered renn fibers leaves us with a highly potent, thick liquid.</description>
+    <baseCost>2000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <tab>RennOrganisms</tab>
+    <prerequisites>
+      <li>Research_RennFiberEngineered</li>
+    </prerequisites>
+    <researchViewX>3</researchViewX>
+    <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>Research_RennPortal</defName>
+    <label>Renn Gate</label>
+    <description>The microbes responsible for the reality-altering effects in renn tanks are in fact just the this-worldly extensions of outer-dimensional, non-sentient beings. By injecting renn Concentrate directly into the host-dimension of the renn microbes, we will further enhance their effects. Including their effects on the overall mental health of our colonists - but you can't have everything.</description>
+    <baseCost>3000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>RennOrganisms</tab>
+    <prerequisites>
+      <li>Research_RennReactor</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>0</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>Research_RennCapsule</defName>
+    <label>Renn Capsules</label>
+    <description>In order to inject renn concentrate directly into the home-dimension of the renn microbes, we will need this delivery container.</description>
+    <baseCost>3000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <tab>RennOrganisms</tab>
+    <prerequisites>
+      <li>Research_RennConcentrate</li>
+    </prerequisites>
+    <researchViewX>4</researchViewX>
+    <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+</Defs>
